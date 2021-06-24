@@ -17,8 +17,8 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
-        <belike-core.version>0.0.155</belike-core.version>
-        <dozer-core.version>6.5.0</dozer-core.version>
+        <jobosk.repo.url>github.com/jobosk/crudifier/blob/repository/com/github/jobosk/crudifier</jobosk.repo.url>
+        <crudifier.version>1.5-SNAPSHOT</crudifier.version>
     </properties>
 
     <repositories>
@@ -28,8 +28,9 @@
             <url>https://repo.maven.apache.org/maven2</url>
         </repository>
         <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
+            <id>jobosk</id>
+            <name>Repositorio de jobosk en Github</name>
+            <url>https://${jobosk.repo.url}/${crudifier.version}/crudifier-${crudifier.version}.jar?raw=true</url>
         </repository>
     </repositories>
 
@@ -52,7 +53,7 @@
         <dependency>
             <groupId>com.github.jobosk</groupId>
             <artifactId>crudifier</artifactId>
-            <version>1.4-SNAPSHOT</version>
+            <version>${crudifier.version}</version>
         </dependency>
 
         <dependency>
