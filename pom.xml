@@ -28,11 +28,6 @@
             <url>https://repo.maven.apache.org/maven2</url>
         </repository>
         <repository>
-            <id>beLike</id>
-            <name>beLike Repository</name>
-            <url>https://api.bitbucket.org/2.0/repositories/belike/belike-maven-repository.git/src/releases</url>
-        </repository>
-        <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
@@ -57,7 +52,7 @@
         <dependency>
             <groupId>com.github.jobosk</groupId>
             <artifactId>crudifier</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.4-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -76,27 +71,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.belike.belike-core</groupId>
-            <artifactId>belike-core-mapper</artifactId>
-            <version>${belike-core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.belike.belike-core</groupId>
-            <artifactId>belike-core-data</artifactId>
-            <version>${belike-core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.dozermapper</groupId>
-            <artifactId>dozer-core</artifactId>
-            <version>${dozer-core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.dozermapper</groupId>
-            <artifactId>dozer-spring4</artifactId>
-            <version>${dozer-core.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
@@ -106,12 +80,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.restdocs</groupId>
+            <artifactId>spring-restdocs-mockmvc</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

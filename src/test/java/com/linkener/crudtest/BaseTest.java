@@ -1,6 +1,5 @@
 package com.linkener.crudtest;
 
-import com.belike.core.mapper.dozer.services.DozerService;
 import com.linkener.crudtest.entity.TestEntity;
 import com.linkener.crudtest.repository.TestEntityRepository;
 import org.junit.Before;
@@ -31,9 +30,6 @@ public abstract class BaseTest {
 
     @Autowired
     public MockMvc mvc;
-
-    @Autowired
-    protected DozerService dozerService;
 
     @Autowired
     protected JacksonTester<List> jsonList;
