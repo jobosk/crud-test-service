@@ -12,20 +12,18 @@ import java.util.UUID;
 @Service
 public class TestEntityService extends CrudService<TestEntity, UUID> implements ITestEntityService {
 
-    private final TestEntityRepository testEntityRepository;
-
     @Autowired
     public TestEntityService(
             final TestEntityRepository repository
     ) {
         super(repository);
-        this.testEntityRepository = repository;
     }
 
     @Override
-    public TestEntityDTO readEntity(UUID id, Class<TestEntityDTO> entityType) {
-        TestEntity entity = testEntityRepository.findById(id).get();
-        // TODO Aqui puedes meter tu 'mapper' para transformar la entidad en tu DTO especifico (si quieres)
-        return new TestEntityDTO();
+    public TestEntityDTO findOneAndApplyMapping(final UUID id) {
+        // Aqui puedes meter tu 'mapper' para transformar la entidad en un
+        // DTO especifico (si quieres), pero requiere implementar los DTOs
+        // y gestionar el mapeo entre el DTO y la entidad
+        return mapper.convertValue(find(id), TestEntityDTO.class);
     }
 }

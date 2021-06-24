@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface ITestEntityService extends ICrudService<TestEntity, UUID> {
 
-    TestEntityDTO readEntity(UUID id, Class<TestEntityDTO> entityType);
+    TestEntityDTO findOneAndApplyMapping(UUID id);
 }

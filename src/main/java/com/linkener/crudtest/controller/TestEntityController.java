@@ -1,6 +1,5 @@
 package com.linkener.crudtest.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jobosk.crudifier.constant.CrudConstant;
 import com.jobosk.crudifier.controller.CrudController;
 import com.linkener.crudtest.constants.Constants;
@@ -22,21 +21,42 @@ import java.util.UUID;
 @RequestMapping(Constants.Http.Path.TESTENTITY)
 public class TestEntityController extends CrudController<TestEntity, UUID> {
 
-    private @Autowired
-    ITestEntityService service;
+    /**
+     * ADVERTENCIA:
+     * Al extender del controlador generico, heredamos
+     * los endpoints estandar del CRUD, lo que nos permite
+     * sobreescribir y ampliar con cabeceras o validaciones
+     * donde sea necesario, inhabilitar puntualmente alguno
+     * de ellos, etc.; pero expone herramientas para interactuar
+     * directamente con el modelo mediante un API REST (un gran
+     * poder conlleva una gran responsabilidad).
+     * Tambien podemos no extender la logica generica e implementar
+     * nuestros propios controladores, pero el objetivo de esta
+     * libreria es agilizar al maximo el levantamiento de un CRUD
+     * (lo cual puede no ser recomendable en entornos productivos
+     * y queda a discrecion del desarrollador) para centrarse en el
+     * diseño del modelo desde etapas muy tempranas.
+     */
 
-    private @Autowired
-    ObjectMapper mapper;
+    private final ITestEntityService service;
 
+    @Autowired
+    public TestEntityController(
+            ITestEntityService service
+    ) {
+        this.service = service;
+    }
+
+    /**
+     * Este metodo ilustra como podriamos (si quisieramos) emplear un DTO
+     * especifico integrandonos con el servicio del CRUD generico.
+     *
+     * @param id
+     * @return
+     */
     @GetMapping(path = "{" + CrudConstant.Http.Param.ID + "}/dto")
     public @ResponseBody
     TestEntityDTO findOneAsDTO(@PathVariable(CrudConstant.Http.Param.ID) final UUID id) {
-        return mapper.convertValue(service.find(id), TestEntityDTO.class);
-    }
-
-    @GetMapping(path = "{" + CrudConstant.Http.Param.ID + "}/dozer")
-    public @ResponseBody
-    TestEntityDTO findOneWithDozer(@PathVariable(CrudConstant.Http.Param.ID) final UUID id) {
-        return service.readEntity(id, TestEntityDTO.class);
+        return service.findOneAndApplyMapping(id);
     }
 }
