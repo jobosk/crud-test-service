@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 @Service
-public class TestEntityService extends CrudService<TestEntity> implements ITestEntityService {
+public class TestEntityService extends CrudService<TestEntity, UUID> implements ITestEntityService {
 
     private final TestEntityRepository testEntityRepository;
 

@@ -6,7 +6,7 @@ import com.linkener.crudtest.entity.TestEntity;
 
 import java.util.UUID;
 
-public interface ITestEntityService extends ICrudService<TestEntity> {
+public interface ITestEntityService extends ICrudService<TestEntity, UUID> {
 
     TestEntityDTO readEntity(UUID id, Class<TestEntityDTO> entityType);
 }

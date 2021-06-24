@@ -20,7 +20,7 @@ import java.util.UUID;
 @RestController
 @Log4j2
 @RequestMapping(Constants.Http.Path.TESTENTITY)
-public class TestEntityController extends CrudController<TestEntity> {
+public class TestEntityController extends CrudController<TestEntity, UUID> {
 
     private @Autowired
     ITestEntityService service;
