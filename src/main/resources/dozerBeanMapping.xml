@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozermapper.github.io/schema/bean-mapping"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozermapper.github.io/schema/bean-mapping https://dozermapper.github.io/schema/bean-mapping.xsd">
+     
+    <configuration>
+      	<trim-strings>true</trim-strings>
+      	<custom-converters>
+			<converter type="com.belike.core.mapper.dozer.converters.EntityDozerConverter" >
+        		<class-a>java.lang.Long</class-a>
+        		<class-b>com.belike.core.data.entities.EntityBase</class-b>
+      		</converter>
+      		<converter type="com.belike.core.mapper.dozer.converters.EntityDozerConverter" >
+        		<class-a>java.lang.String</class-a>
+        		<class-b>com.belike.core.data.entities.EntityBase</class-b>
+      		</converter>
+      		<converter type="com.belike.core.mapper.dozer.converters.LocalDateDozerConverter" >
+        		<class-a>java.time.LocalDate</class-a>
+        		<class-b>java.lang.Integer</class-b>
+      		</converter>
+      		<converter type="com.belike.core.mapper.dozer.converters.LocalDateTimeDozerConverter" >
+        		<class-a>java.time.LocalDateTime</class-a>
+        		<class-b>java.lang.Long</class-b>
+      		</converter>
+      		<converter type="com.belike.core.mapper.dozer.converters.LocalTimeDozerConverter" >
+                <class-a>java.time.LocalTime</class-a>
+                <class-b>java.lang.String</class-b>
+            </converter>
+      	</custom-converters>
+    </configuration>
+    
+</mappings>
